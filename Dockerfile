@@ -19,7 +19,7 @@ RUN apt-get update && \
     rm Rserve_1.8-6.tar.gz
 # install the packages from dataverse installation guide
 # https://guides.dataverse.org/en/6.2/installation/prerequisites.html#installing-the-required-r-libraries
-RUN Rscript -e 'install.packages(c("R2HTML", "rjson", "DescTools", "Rserve", "haven"), repos="https://cloud.r-project.org/", lib="/usr/lib64/R/library" )'
+RUN Rscript -e 'install.packages(c("R2HTML", "rjson", "DescTools", "Rserve", "haven"), repos="https://cloud.r-project.org/")'
 
 VOLUME /localdata
 
