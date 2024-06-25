@@ -22,10 +22,9 @@ RUN apt-get update && \
     wget --no-check-certificate https://www.rforge.net/Rserve/snapshot/Rserve_1.8-6.tar.gz && \
     R CMD INSTALL Rserve_1.8-6.tar.gz && \
     rm Rserve_1.8-6.tar.gz
-# preferring cran repo for R packages as they're more up-to-date, e.g. debian
-# repo version of tseries failed to connect to yahoo for data which was fixed
-# in a more recent release of tseries
-RUN Rscript -e 'install.packages(c("leaps", "tree", "glmnet", "lars", "nnet", "adabag", "lmerTest", "ggplot2", "visreg", "dplyr", "vegan", "mclust", "tseries", "zoo", "lpSolve"), repo="http://cran.rstudio.com")'
+# install the packages from dataverse installation guide
+# https://guides.dataverse.org/en/6.2/installation/prerequisites.html#installing-the-required-r-libraries
+RUN Rscript -e 'install.packages(c("R2HTML", "rjson", "DescTools", "Rserve", "haven"), repos="https://cloud.r-project.org/", lib="/usr/lib64/R/library" )'
 
 VOLUME /localdata
 
