@@ -12,11 +12,6 @@ RUN apt-get update && \
       libssl-dev \
       libnlopt-dev \
       libcurl4-openssl-dev \
-      # these r packages failed to install from the cran repo as they require R
-      # >= 4.1.0, so installing them from debian repo instead
-      r-cran-locfit \
-      r-cran-randomforest \
-      r-cran-car \
       && \
     rm -rf /var/lib/apt/lists/* && \
     wget --no-check-certificate https://www.rforge.net/Rserve/snapshot/Rserve_1.8-6.tar.gz && \
